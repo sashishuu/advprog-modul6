@@ -53,6 +53,8 @@ In this milestone, we simulated a slow server response by introducing a delay:
 **Opinions:**
 - When `/sleep` is requested, all other requests to the server are delayed.The server is **single-threaded**, meaning it can only handle one request at a time. This demonstrates the need for **multi-threading** in real web servers.
 
-Example screenshot: (it's loading when we opened http://127.0.0.1:7878/sleep from ttp://127.0.0.1:7878/unknown
+Example screenshot: (it's loading when we opened http://127.0.0.1:7878/sleep from http://127.0.0.1:7878/unknown)
+![Screenshot (1566)](https://github.com/user-attachments/assets/57ae772f-9b07-4d1f-8d48-a137ba8efb4e)
+
 
 
