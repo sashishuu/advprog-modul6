@@ -22,7 +22,8 @@ The important changes in `handle_connection`:
 - Sends the response to the client using `stream.write_all(response.as_bytes()).unwrap();`
 
 Example screenshot of the output:
-![Uploading Screenshot (1561).png…]()
+
+![Screenshot (1561)](https://github.com/user-attachments/assets/dae53b99-7d03-4322-9378-d5e6322eaffb)
 
 ![Screenshot (1556)](https://github.com/user-attachments/assets/0aabc790-a4d4-4b37-a2af-986f9235a0e1)
 
@@ -36,5 +37,7 @@ In this milestone, we implemented request validation and selective responses:
 - The function `serve_file` reads the requested file and returns either **200 OK** or **404 NOT FOUND**.
 
 Example screenshot:
-![Screenshot (1559)](https://github.com/user-attachments/assets/d2b2d5ea-f653-4e86-9248-ec21f12269af)
+![Screenshot (1564)](https://github.com/user-attachments/assets/ccc93bfa-f74f-43c8-95a2-3edc3235431c)
+![Screenshot (1562)](https://github.com/user-attachments/assets/521b366a-37a6-424d-ba20-7af3236723c0)
+
 
