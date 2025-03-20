@@ -22,6 +22,7 @@ The important changes in `handle_connection`:
 - Sends the response to the client using `stream.write_all(response.as_bytes()).unwrap();`
 
 Example screenshot of the output:
+![Screenshot (1556)](https://github.com/user-attachments/assets/0aabc790-a4d4-4b37-a2af-986f9235a0e1)
 
 # Commit 3: Reflection Notes
 
