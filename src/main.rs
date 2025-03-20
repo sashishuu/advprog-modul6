@@ -2,6 +2,8 @@ use std::{
     fs,
     io::{prelude::*, BufReader, Write},
     net::{TcpListener, TcpStream},
+    thread,
+    time::Duration,
 };
 
 fn main() {
@@ -17,25 +19,16 @@ fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
     let request_line = buf_reader.lines().next().unwrap().unwrap();
 
-    if request_line == "GET / HTTP/1.1" {
-        serve_file("hello.html", stream);
-    } else {
-        serve_file("404.html", stream);
-    }
-}
+    let (status_line, filename) = match request_line.as_str() {
+        "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", "hello.html"),
+        "GET /sleep HTTP/1.1" => {
+            thread::sleep(Duration::from_secs(10)); // Simulasi delay 10 detik
+            ("HTTP/1.1 200 OK", "hello.html")
+        }
+        _ => ("HTTP/1.1 404 NOT FOUND", "404.html"),
+    };
 
-fn serve_file(filename: &str, mut stream: TcpStream) {
-    let status_line;
-    let contents;
-
-    if let Ok(content) = fs::read_to_string(filename) {
-        status_line = "HTTP/1.1 200 OK";
-        contents = content;
-    } else {
-        status_line = "HTTP/1.1 404 NOT FOUND";
-        contents = "<html><body><h1>Oops!</h1><p>Sorry, I don’t know what you’re asking for.</p></body></html>".to_string();
-    }
-
+    let contents = fs::read_to_string(filename).unwrap();
     let length = contents.len();
     let response = format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
 

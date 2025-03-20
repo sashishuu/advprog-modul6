@@ -38,3 +38,18 @@ In this milestone, we implemented request validation and selective responses:
 Example screenshot:
 ![Screenshot (1559)](https://github.com/user-attachments/assets/d2b2d5ea-f653-4e86-9248-ec21f12269af)
 
+# Commit 4: Reflection Notes
+
+## Simulation of Slow Request
+
+In this milestone, we simulated a slow server response by introducing a delay:
+- If a request is `"GET / HTTP/1.1"`, it serves `hello.html` instantly.
+- If a request is `"GET /sleep HTTP/1.1"`, it **waits 10 seconds** before responding.
+- If a request is invalid, it serves `404.html`.
+
+**Opinions:**
+- When `/sleep` is requested, all other requests to the server are delayed.The server is **single-threaded**, meaning it can only handle one request at a time. This demonstrates the need for **multi-threading** in real web servers.
+
+Example screenshot: (it's loading when we opened http://127.0.0.1:7878/sleep from ttp://127.0.0.1:7878/unknown
+
+
