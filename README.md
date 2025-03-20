@@ -34,3 +34,5 @@ In this milestone, we implemented request validation and selective responses:
 - The function `serve_file` reads the requested file and returns either **200 OK** or **404 NOT FOUND**.
 
 Example screenshot:
+![Screenshot (1559)](https://github.com/user-attachments/assets/d2b2d5ea-f653-4e86-9248-ec21f12269af)
+
