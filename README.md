@@ -23,3 +23,13 @@ The important changes in `handle_connection`:
 
 Example screenshot of the output:
 
+# Commit 3: Reflection Notes
+
+## Validating Request and Selectively Responding
+
+In this milestone, we implemented request validation and selective responses:
+- If the request is `"GET / HTTP/1.1"`, it serves `hello.html`.
+- If the request is anything else, it serves `404.html` (or a default error message).
+- The function `serve_file` reads the requested file and returns either **200 OK** or **404 NOT FOUND**.
+
+Example screenshot:
