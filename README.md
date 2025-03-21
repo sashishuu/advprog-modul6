@@ -71,4 +71,19 @@ Previously, one slow request (e.g., `/sleep`) would **block all other requests**
 
 Example screenshot:
 
+# Commit Bonus: Reflection Notes
+
+## Function Improvement - Replacing `new` with `build`
+
+In this bonus commit improvement, we:
+- Replaced `ThreadPool::new()` with `ThreadPool::build()`, making the function name more descriptive.
+- Added an `assert!` to ensure a non-zero number of threads.
+- Improved the code readability and maintainability (hopefully)
+
+**Opinions:**
+- The functionality remains the same.
+- This improvement follows better naming conventions in Rust.
+- I hope the bonus commit was correct and I didn't misunderstand the instructions
+
+
 

@@ -13,7 +13,10 @@ struct ThreadPool {
 }
 
 impl ThreadPool {
-    fn new(size: usize) -> ThreadPool {
+    /// Replaces `new` with `build` for bonus commit purposes
+    fn build(size: usize) -> ThreadPool {
+        assert!(size > 0);
+
         let (sender, receiver) = mpsc::channel();
         let receiver = Arc::new(Mutex::new(receiver));
 
@@ -66,7 +69,7 @@ type Job = Box<dyn FnOnce() + Send + 'static>;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = ThreadPool::new(4); // Server menggunakan 4 thread
+    let pool = ThreadPool::build(4); // Replace `new` with `build`
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
