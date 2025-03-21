@@ -70,5 +70,6 @@ In this milestone, we improved the server by implementing **ThreadPool**:
 Previously, one slow request (e.g., `/sleep`) would **block all other requests**. Now, multiple requests **can be processed concurrently** using **4 worker threads**.
 
 Example screenshot:
+![Screenshot (1575)](https://github.com/user-attachments/assets/a3da0b1e-cd73-4020-bc58-a658bb072c1b)
 
 
