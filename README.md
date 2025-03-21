@@ -55,4 +55,18 @@ In this milestone, we simulated a slow server response by introducing a delay:
 
 Example screenshot: (it's loading when we opened http://127.0.0.1:7878/sleep from ttp://127.0.0.1:7878/unknown
 
+# Commit 5: Reflection Notes
+
+## Multithreaded Server using ThreadPool
+
+In this milestone, we improved the server by implementing **ThreadPool**:
+- The server now spawns **multiple worker threads** to handle requests.
+- If one request takes time (e.g., `/sleep`), it does **not block** other requests.
+- We used **Rust's `mpsc` (multi-producer, single-consumer) channel** and **`Arc<Mutex<T>>`** to share the queue of incoming jobs across threads.
+
+**Opinions:**
+Previously, one slow request (e.g., `/sleep`) would **block all other requests**. Now, multiple requests **can be processed concurrently** using **4 worker threads**.
+
+Example screenshot:
+
 
